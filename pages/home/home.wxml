@@ -1,0 +1,20 @@
+
+<import src="../../components/carouselPic/CarouselPic.wxml"  />
+<template is="carousel" data="{{ ...$wux.carousel.homeAdv }}"/>
+<view>
+ <view class="index-menu">
+		<navigator class="index-menu-item" wx:for="{{indexmenu}}" wx:key="{{item.url}}" url="../{{item.url}}/{{item.url}}">
+			<image src="{{item.icon}}"></image>
+			<text>{{item.text}}</text>
+		</navigator>
+ </view>
+ <view class="menu-list border-t1">
+    <navigator class="flex menu-list pad-tb8 border-b1"  wx:for="{{indexLines}}" wx:key="{{item.url}}" url="../{{item.url}}">
+       <view class="pad-rl20"><image class="w80 h80 mar-t5" src="{{item.icon}}"></image></view>
+       <view class="menu-text">
+        <view><text>{{item.name}}</text></view>
+        <view class="menu-text-tip"><text>{{item.text}}</text></view>
+       </view>
+    </navigator>
+ </view>
+</view>

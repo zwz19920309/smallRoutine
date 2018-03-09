@@ -1,0 +1,6 @@
+<template name="toast">
+   <view wx:if="{{visible}}" >
+       <view class="toast"><text>{{content}}</text></view> 
+       <view class="p-fix-full"></view>
+   </view>
+</template>

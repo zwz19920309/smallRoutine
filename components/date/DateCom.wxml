@@ -1,0 +1,9 @@
+<template name="date">
+   <view wx:if="{{ visible }}">
+       <picker mode="date" value="{{date}}" start="{{start}}" end="{{end}}" bindchange="{{changeDate}}">
+         <view class="picker">
+           {{date}}
+         </view>
+       </picker>
+   </view>
+</template>

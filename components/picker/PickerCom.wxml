@@ -1,0 +1,9 @@
+<template name="picker">
+   <view>
+        <picker value="{{index}}" range="{{array}}"  bindchange="{{bindPickerChange}}">
+           <view class="picker">
+              {{array[index]}}
+           </view>
+         </picker>
+   </view>
+</template>

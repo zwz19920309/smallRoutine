@@ -1,0 +1,60 @@
+<view class="section f4">
+   <view class="bg0 pad5" wx:if="{{multiquotelist.carlicenseno}}">
+      <view class="flex al-cen ju-con-be">
+         <text class="c2 f4">{{multiquotelist.carlicenseno}}</text>
+         <text class="f2">{{multiquotelist.startquotetime}}</text>
+      </view>
+      <view class="flex al-cen ju-con-be">
+         <text class="c3">被保人：{{multiquotelist.insuredname}}</text>
+         <text>共<text class="c4">{{multiquotelist.quoteinfolist.length}}</text>家报价</text>
+      </view>
+   </view>
+
+   <view class="mar-t10">
+      <view class="bg0 mar-t10" wx:for="{{multiquotelist.quoteinfolist}}" wx:key="{{item}}">
+         <view class="flex al-cen ju-con-be pad-tb10 pad-rl5 border-b1" >
+           <view class="flex al-cen">
+             <image class="w32 h32" src="{{item.inscomlogo}}"></image>
+             <text>{{item.inscomname}}</text>
+           </view>
+           <view class="f2">
+              <text class="c2 f2">
+                 <text wx:if="{{item.systartdate}}">起保日期: (商){{item.systartdate}}</text> 
+                 <text wx:if="{{item.jqstartdate}}" class="pad-rl5">(交){{item.jqstartdate}}</text> 
+              </text>
+            </view>
+         </view>
+         <view class="flex al-cen ju-con-be pad-tb5 pad-rl10">
+            <view>
+              <view><text>{{item.webname}}</text></view>
+              <view><text class="f2">报价有效期:{{multiquotelist.startquotetime}} 二十四时</text></view>
+            </view>
+            <view>
+                <text class="c4" wx:if="{{item.quoteStatue == 14}}">￥{{item.quoteamount}}</text>
+                <text class="c4" wx:if="{{(item.quoteStatue != 14)&&(!item.isLoading)}}">{{item.taskWebName}}</text>
+                <image wx:if="{{item.isLoading}}" class="w25 h25" src="../../assets/images/img/loading.gif"></image>
+             </view>
+         </view> 
+       <view class="pad-tb5 bg0">  
+         <view class="flex al-cen ju-con-be bg3 mar-tb5  t-center c0 bg3" wx:if="{{item.codeNames.length==3}}">
+           <view  class="{{code.flag?'w-100 bg4 pad5':'w-100 bg3 pad5 border-r1-c0'}}" wx:for="{{item.codeNames}}" wx:key="{{code.index}}" wx:for-item="code" wx:for-index="code.index">
+              <text>{{code.name}}</text>
+           </view>
+         </view>
+        <view class="flex al-cen ju-con-be  bg3 t-center c0" wx:if="{{item.codeNames.length==2}}">
+           <view class="w-100 bg3 pad5"></view>
+           <view  class="{{code.flag?'w-100 bg4 pad5':'w-100 bg3 pad5 border-r1-c0 border-l1-c0'}}" wx:for="{{item.codeNames}}" wx:key="{{code.index}}" wx:for-item="code" wx:for-index="code.index">
+              <text>{{code.name}}</text>
+           </view>
+         </view>
+         <view class="flex al-cen ju-con-be bg3 t-center c0" wx:if="{{item.codeNames.length==1}}">
+           <view class="w-100 bg3 pad5"></view>
+           <view class="w-100 bg3 pad5"></view>
+           <view  class="w-100 bg4 pad5 border-l1-c0" wx:for="{{item.codeNames}}" wx:for-item="code" wx:for-index="code.index" wx:key="{{code.index}}">
+              <text>{{code.name}}</text>
+           </view>
+         </view>
+        </view>
+      </view>
+   </view>
+</view>

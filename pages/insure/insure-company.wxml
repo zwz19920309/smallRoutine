@@ -1,0 +1,36 @@
+
+<view>
+  <view class="mar-t10">
+   <view class="mar-t5 pad-rl10 bg0 al-cen"  wx:for="{{traProviders}}" wx:key="item.idx">
+      <view class="flex ju-con-be pad5">
+            <view class="flex al-cen">
+              <view><image class="w32 h32" src="{{item.logo}}"></image></view>
+              <view class="pad-rl5">
+               <view><text class="c2 f2">{{item.agreementname}}</text></view>
+               <view class="flex" wx:if="{{item.showSite}}">
+                <picker bindchange="bindPickerChange" value="{{item.idx}}" range="{{item.netNames}}"  id="{{index}}">
+                    <view class="flex al-cen  ju-con-be wx150">
+                      <view class="pad-r5"><view class="h20 over-h f1">{{item.netNames[item.idx]}}</view></view><view  wx:if="item.idx==0"><image class="w12 h12 pad-t8" src="../../assets/images/bg_sel.png"/></view>
+                    </view>
+                </picker>
+               </view>
+              </view> 
+            </view>
+            <view  class="flex al-cen ju-con-en wx60" bindtap="selectProvider" id="{{index}}">
+                <view class="f1 c2 pad-rl5 border-t1-c2 mar-rl10"  wx:if="{{item.aotohand=='1'}}">人工</view> 
+                <view><radio value="{{item.name}}" checked="{{item.showSite}}"/></view>
+            </view>
+      </view>
+      <!--<view><text>213213213</text><text>213213213</text></view>-->
+    </view>
+   </view>
+   	<view class="section">
+     <view class="mar20">
+         <button class="login-btn bg" bindtap="nextStep">下一步</button>
+     </view>
+      <view class="pad-10">
+         <button class="login-btn bg" bindtap="insureType">险种选择</button>
+     </view>
+  </view>
+  
+</view>

@@ -1,0 +1,6 @@
+<template name="toastPannel">
+   <view wx:if="{{isShow}}" >
+       <view class="toast"><text>{{content}}</text></view> 
+       <view class="p-fix-full"></view>
+   </view>
+</template>

@@ -1,0 +1,29 @@
+<template name="carSearch">
+   <view wx:if="{{ visible }}">
+      <view class="container p-fix-full">
+       <view class="section p-abs-full bg2">
+	    <view class="p-fixed w-100">
+		 <view class="pad5 bg0"><view class="t-center f2"><text>车型搜索</text></view></view>
+	       <view class="pad5 bg"><view class="bg0 f2 pad-rl5"><input  bindinput="bindKeyInput" placeholder="请输入车型关键字"/></view></view>
+	     </view> 
+	 	 <view class="mar-t80">
+		  <view class="mar10 ">
+			 <view class="border-b1 pad5 bg0"  wx:for="{{dataList}}"  wx:key="{{item.vehicleid}}" bindtap="selectCarModal" >
+			  <view class="pad-tb5 pad-rl10 f2">
+					<view><text class="c2">{{item.standardname}}</text></view>
+				  <view>
+					    <text class="pad-rl5">{{item.gearbox}}</text>
+							<text class="pad-rl5">({{item.seat}}座)</text>
+							<text class="pad-rl5">{{listedyear}}排气量</text>
+							<text class="pad-rl5">{{item.displacement}}L</text>
+					</view>
+					<view><text class="c4">￥{{item.taxPrice}}</text></view>
+				</view>
+		   </view>
+		  </view>	
+	   </view>  
+	</view>	
+</view>
+
+   </view>
+</template>

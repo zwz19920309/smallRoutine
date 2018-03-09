@@ -1,0 +1,10 @@
+page{
+    background:#f5f5f5;
+}
+.login-btn{
+   width: 80%;
+   color: white;
+   border-radius: 0;
+   font-size: 14px;
+   margin-top:15px;
+}

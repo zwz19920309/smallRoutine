@@ -1,0 +1,67 @@
+<import src="../../components/picker/PickerCom.wxml"  />
+<import src="../../components/date/DateCom.wxml"  />
+<import src="../../components/common/ToastPannel.wxml"  />
+<template is="toastPannel" data="{{ ...__toast__ }}"/>
+<view class="container" wx:if="{{visible}}">
+  <view class="section">
+    <view><image src="{{imgUrl}}" class="w-100"></image></view>
+    <view class="input-list" style="border-top:none;padding:0">
+		<view class="input-item">
+				<text class="input-item-label wx100">车辆初登日期</text>
+				<view class="input-item-content">
+					<template is="date" data="{{ ...$wux.date.registerDate }}"/>
+				</view>
+		</view>
+    <view class="input-item">
+			<text class="input-item-label wx100">车辆识别码</text>
+			<view class="input-item-content">
+				<input type="text" placeholder="请输入车辆识别码" maxlength="17" value="{{vin}}" bindinput="bindVin" ></input>
+			</view>
+		</view>
+
+    <view class="input-item">
+			<text class="input-item-label wx100">发动机号</text>
+			<view class="input-item-content">
+				<input type="text" placeholder="请输入发动机号" value="{{engineNo}}" ></input>
+			</view>
+		</view>
+    <view class="input-item">
+			<text class="input-item-label wx100">品牌型号</text>
+			<view class="input-item-content">
+				<view  bindtap="chooseCarItem">
+				<text wx:if="{{!modelCode}}">请选择品牌型号</text>
+				<text wx:if="{{modelCode}}">{{modelCode}}</text>
+			</view>
+			</view>
+		</view>
+		<view class="border-t1 pad-t5 pad-rl10"><text class="c3" wx:if="{{showCarList}}" >请选择车型</text></view>
+		<view class="mar5 border-trl1">
+		  <view class="border-b1 pad5" wx:if="{{showCarList}}" wx:for="{{carList}}" bindtap="selectCarItem" data-item="{{item}}" wx:key="{{jgVehicleType}}">
+			  <view class="pad-tb5 pad-rl10 f2">
+					<view><text class="c2">{{item.standardname}}</text></view>
+				  <view>
+					    <text class="pad-rl5">{{item.gearbox}}</text>
+							<text class="pad-rl5">({{item.seat}}座)</text>
+							<text class="pad-rl5">{{listedyear}}排气量</text>
+							<text class="pad-rl5">{{item.displacement}}L</text>
+					</view>
+					<view><text class="c4">￥{{item.taxPrice}}</text></view>
+				</view>
+			</view>
+		</view>  
+    <view class="input-item">
+			<text class="input-item-label wx100" >是否过户车</text>
+			<view class="input-item-content">
+					<template is="picker" data="{{ ...$wux.picker.transCom }}"/>
+			</view>
+		</view>
+	  <view><text>{{car_info.vin}}</text></view>	 
+
+	 </view>    
+	 <view class="section mar10">
+     <view class="pad-10">
+         <button class="login-btn bg" bindtap="nextStep">下一步</button>
+     </view>
+   </view>  
+  </view>
+</view>

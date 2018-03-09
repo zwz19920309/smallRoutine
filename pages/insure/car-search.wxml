@@ -1,0 +1,117 @@
+
+<import src="../../components/carmodel/CarModelCom.wxml"  />
+<import src="../../components/picker/PickerCom.wxml"  />
+<import src="../../components/common/ToastPannel.wxml"  />
+<template is="toastPannel" data="{{ ...__toast__ }}"/>
+
+ <view class="container">
+    <view ><template is="carmodel" data="{{ ...$wux.carmodel.carInsureModel }}"/></view>
+    <view class="section">
+	    <view class="w-100 p-fixed">
+		    <view class="pad10 bg0">
+				   <view class="t-center f2"><text>车型搜索</text></view></view>
+	           <view class="pad5 bg"><view class="bg0 f2 pad-rl5">
+					     <input type="" value="{{searchContent}}" bindinput="bindKeyInput" placeholder="请输入车型关键字"/>
+						 </view>
+					 </view>
+	      </view> 
+	    <view>
+		  <view class="mar-t80">
+			 <view class="mar10">
+			  <view class="border-b1 pad5 bg0"  wx:for="{{dataList}}" data-item="{{item}}"  wx:key="{{item.vehicleid}}" bindtap="selectCarModal" >
+			   <view class="pad-tb5 pad-rl10 f2">
+					<view><text class="c2">{{item.standardname}}</text></view>
+				  <view>
+					    <text class="pad-rl5">{{item.gearbox}}</text>
+							<text class="pad-rl5">({{item.seat}}座)</text>
+							<text class="pad-rl5">{{listedyear}}排气量</text>
+							<text class="pad-rl5">{{item.displacement}}L</text>
+					</view>
+					<view><text class="c4">￥{{item.taxPrice}}</text></view>
+				</view>
+		     </view>
+        <view class="pad10 t-center f2 c3" ><text wx:if="{{showMore}}">正在加载中....</text></view>
+		  
+			</view>	
+	   </view>
+
+
+   <view wx:if="{{ visible }}">
+      <view class="container p-fix-full">
+        <view class="section p-abs-full bg1">
+           <view class="p-fixed w-100">
+		         <view class="pad10 bg0">
+						    <view class="t-center f2">
+								  <text>车型确认</text>
+								</view>
+						 </view>
+             <view class="section">
+              <view class="input-list" style="border-top:none;padding:0">
+		          <view class="input-item">
+		           	<text class="input-item-label wx100">品牌型号</text>
+			           <view class="input-item-content">
+                    <input type="text" placeholder="请输入品牌型号" value="{{carModel.modelCode}}" ></input>
+                  </view>
+				     	</view>
+              <view class="input-item">
+							  	<text class="input-item-label wx100">排气量</text>
+		            	<view class="input-item-content">
+                      <input type="text" placeholder="请输入排气量" value="{{carModel.displacement}}" ></input>
+                  </view>
+              </view>
+              <view class="input-item">
+		           	<text class="input-item-label wx100">核定载人数</text>
+			          <view class="input-item-content">
+                      <input type="text" placeholder="请输入核定载人数"  value="{{carModel.approvedLoad}}"></input>
+                  </view>
+                </view>  
+              <view class="input-item">
+		            	<text class="input-item-label wx100">车价选择</text>
+			             <view class="input-item-content">
+                      <input type="text" placeholder="请输入车价选择"  value="{{carModel.customPrice}}" ></input>
+                  </view>
+             </view> 
+
+             <view class="input-item">
+			          <text class="input-item-label wx100">所属性质</text>
+	          		<view class="input-item-content">
+                       	<template is="picker" data="{{ ...$wux.picker.instiTypeCom }}"/> 
+                  </view>
+             </view> 
+
+             <view class="input-item">
+		           	<text class="input-item-label wx100">车辆性质</text>
+		          	<view class="input-item-content">
+                     	<template is="picker" data="{{ ...$wux.picker.userPropCom }}"/> 
+                </view>
+            </view>
+                
+           <view class="input-item">
+		        	<text class="input-item-label wx100">整备质量</text>
+		        	<view class="input-item-content">
+                      <input type="text" placeholder="请输入整备质量" value="{{carModel.wholeWeight}}"></input>
+              </view>
+           </view> 
+
+          <view>
+         </view>
+				</view>   
+
+			 <view class="section mar10">
+         <view class="pad-10">
+           <button class="login-btn bg c0" bindtap="nextStep">确认</button>
+         </view>
+        </view>  
+
+	     </view> 
+     </view> 
+         </view>
+        </view>
+      </view>    
+		</view>	  
+
+
+
+
+	</view>	
+  </view>  

@@ -1,0 +1,18 @@
+<!--logs.wxml-->
+<view class="container">
+    <view class="section">
+     <view class="bg pad10 c0">
+       <view><text>钟文治,你好</text></view>
+       <view><text>正式用户(广东南枫本部一分网点)</text></view>
+     </view>
+     <view class="menu-list border-t1 mar-t10">
+      <navigator class="flex menu-list pad-tb5"  wx:for="{{menuList}}" wx:key="{{item.url}}" url="../{{item.url}}">
+       <view class="pad-rl10"><image class="h60 w60 mar-t5" src="{{item.icon}}"></image></view>
+       <view class="menu-text">
+        <view><text>{{item.name}}</text></view>
+        <view class="menu-text-tip"><text>{{item.text}}</text></view>
+       </view>
+     </navigator>
+    </view> 
+  </view>
+</view>

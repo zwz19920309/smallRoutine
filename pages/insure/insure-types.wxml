@@ -1,0 +1,78 @@
+<import src="../../components/picker/PickerCom.wxml"  />
+
+<view class="section f3" wx:if="{{visible}}">
+  <view class="pad-rl10 pad-tb5 bg0">
+     	<view><template is="picker" data="{{ ...$wux.picker.schemeList }}"/> </view>
+  </view> 
+  <view class="mar-tb5" wx:show="inSuranceSchemeList">
+     <view class="pad10"><text>商业险</text></view>
+     <view class="border-t1" wx:for="{{inSuranceSchemeList}}" wx:key="item.riskkindcode">
+       <view class="flex al-cen  pad10 bg0 border-b1">
+         <view class="wx250"><text>{{item.riskkindname}}</text></view>
+         <view class="flex ju-con-be w-100" >
+          <view class="c2">
+             <picker  bindchange="bindPickerChange" value="{{item.cTypes.index}}" range="{{item.cTypes.array}}"  data-item="{{item}}">            
+                 <view class="pad-r5"><view>{{item.cTypes.array[item.cTypes.index]}}</view></view>
+             </picker>
+          </view>
+          <view>
+              <view wx:if="{{item.isdeductible=='1'}}" bindtap="slectedFlag" data-item="{{item}}">
+                <text class="f0 c3">不计免赔</text>
+                <checkbox class="pad-rl5"  checked="{{item.flag}}"/>
+              </view>
+          </view>
+         </view>
+       </view>
+     </view>
+  </view>
+
+  <view>
+    <view class="pad10"><text>车主信息</text></view>
+    <view class="bg0">
+     	<view class="flex pad-rl10 pad-tb5"> 
+          <text class="wx250">证件类型</text> 
+          <view class="w-100 c2">
+             <template is="picker" data="{{ ...$wux.picker.certKindCom }}"/>
+          </view>
+        </view> 
+        <view class="flex pad-rl10 pad-tb5"> 
+          <text class="wx250">证件号码</text> 
+          <view class="w-100">
+              <input type="text" placeholder="请输入证件号码" value="{{carOwner.caerNum}}" ></input>
+          </view>
+        </view> 
+    </view>
+  </view>
+
+  <view>
+    <view class="pad10"><text>关系人信息</text></view>
+    <view class="pad-rl10 pad-tb5"><text>被保人信息</text></view>
+    <view class="bg0">
+      <view class="flex pad-rl10 pad-tb5"> 
+         <text class="wx250">姓名</text> 
+         <view class="w-100"><text>{{queryPerson.insuredPerson.name}}</text></view>
+      </view> 
+      <view class="flex pad-rl10 pad-tb5"> 
+          <text class="wx250">身份证号</text> 
+          <view class="w-100"><text>{{queryPerson.insuredPerson.certNumber}}</text></view>
+      </view> 
+    </view>
+    <view class="pad-rl10 pad-tb5"><text>投保人信息</text></view>
+    <view class="bg0">
+      <view class="flex pad-rl10 pad-tb5"> 
+         <text class="wx250">姓名</text> 
+         <view class="w-100"><text>{{queryPerson.applicantPerson.name}}</text></view>
+      </view> 
+      <view class="flex pad-rl10 pad-tb5"> 
+          <text class="wx250">身份证号</text> 
+          <view class="w-100"><text>{{queryPerson.applicantPerson.certNumber}}</text></view>
+      </view> 
+    </view>
+  </view>
+
+   <view class="section mar10">
+      <view class="pad-10">
+          <button class="login-btn bg c0" bindtap="nextStep">下一步</button>
+      </view>
+   </view>  
+</view>

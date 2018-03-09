@@ -1,0 +1,56 @@
+//logs.js
+var util = require('../../util/util.js')
+Page({
+  data: {
+    logs: []
+  },
+  fetchData:function(){
+    this.setData({
+      menuList:[
+        {
+          'icon':'./../../assets/images/icon_01.png',
+          'text':'暂存单',
+          'url':'property'
+        },
+        {
+          'icon':'./../../assets/images/icon_09.png',
+          'text':'订单',
+          'url':'service'
+        },
+        {
+          'icon':'./../../assets/images/icon_03.png',
+          'text':'客户',
+          'url':'apply'
+        },
+        {
+          'icon':'./../../assets/images/icon_05.png',
+          'text':'保单',
+          'url':'property'
+        },
+        {
+          'icon':'./../../assets/images/icon_03.png',
+          'text':'聚宝盆',
+          'url':'service'
+        },
+        {
+          'icon':'./../../assets/images/icon_13.png',
+          'text':'影像',
+          'url':'apply'
+        },
+        {
+          'icon':'./../../assets/images/icon_05.png',
+          'text':'推荐好友',
+          'url':'apply'
+        },
+        {
+          'icon':'./../../assets/images/icon_07.png',
+          'text':'车险条款',
+          'url':'apply'
+        }
+      ]
+    })
+  },
+  onLoad: function () {
+     this.fetchData()
+  }
+})

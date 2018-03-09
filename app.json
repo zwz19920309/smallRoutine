@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/home/home",
+    "pages/logs/logs",
+    "pages/my/my",
+    "pages/my/my-order",
+    "pages/insure/car-info",
+    "pages/insure/car-detail",
+    "pages/insure/car-search",
+    "pages/insure/insure-company",
+    "pages/insure/insure-types",
+    "pages/insure/insure-quote"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#00A0E9",
+    "navigationBarTitleText": "掌中保",
+    "navigationBarTextStyle":"#white"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/my/my-order",
+      "text": "我的订单",
+      "iconPath":"assets/images/xihuan.png",
+      "selectedIconPath":"assets/images/xihuanfill.png"
+    }, {
+      "pagePath": "pages/home/home",
+      "text": "首页",
+      "iconPath":"assets/images/biaoxing.png",
+      "selectedIconPath":"assets/images/biaoxingfill.png"
+    }, {
+      "pagePath": "pages/my/my-order",
+      "text": "个人中心",
+      "iconPath":"assets/images/yonghu.png",
+      "selectedIconPath":"assets/images/yonghufill.png"
+    }],
+    "color":"#333",
+    "selectedColor":"#f7982a",
+    "backgroundColor":"#f6f6f6",
+    "borderStyle": "white"
+  }
+}

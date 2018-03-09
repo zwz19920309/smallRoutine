@@ -1,0 +1,85 @@
+
+<import src="../picker/PickerCom.wxml"  />
+<template name="carmodel">
+   <view wx:if="{{ visible }}">
+      <view class="container p-fix-full">
+        <view class="section p-abs-full bg1">
+           <view class="p-fixed w-100">
+		 <view class="pad5 bg0"><view class="t-center f2"><text>车型确认</text></view></view>
+             <view class="section">
+              <view class="input-list" style="border-top:none;padding:0">
+		    <view class="input-item">
+			<text class="input-item-label wx100">品牌型号</text>
+			<view class="input-item-content">
+                    <input type="text" placeholder="请输入品牌型号" value="{{modelCode}}" ></input>
+                  </view>
+                </view>
+                 <view class="input-item">
+			<text class="input-item-label wx100">排气量</text>
+			<view class="input-item-content">
+                      <input type="text" placeholder="请输入排气量" value="{{displacement}}" ></input>
+                  </view>
+                </view>
+                <view class="input-item">
+			<text class="input-item-label wx100">核定载人数</text>
+			<view class="input-item-content">
+                      <input type="text" placeholder="请输入核定载人数"  value="{{approvedLoad}}"></input>
+                  </view>
+                </view>  
+
+                <view class="input-item">
+			<text class="input-item-label wx100">车价选择</text>
+			<view class="input-item-content">
+                      <input type="text" placeholder="请输入车价选择"  value="{{customPrice}}" ></input>
+                  </view>
+                </view> 
+
+
+                <view class="input-item">
+			<text class="input-item-label wx100">所属性质</text>
+			<view class="input-item-content">
+                      <input type="text" placeholder="请选择" ></input>
+                  </view>
+                </view> 
+
+               <!--  <view class="input-item">
+			<text class="input-item-label wx100">车辆性质</text>
+			<view class="input-item-content">
+                        <picker value="{{userProp.index}}" range="{{userProp.array}}"  bindchange="{{bindPickerChange}}" >
+                          <view class="picker">
+                          {{userProp.array[userProp.index]}}
+                          </view>
+                        </picker>
+                  </view>
+                </view>
+                  -->
+
+                <view class="input-item">
+			<text class="input-item-label wx100">车辆性质</text>
+			<view class="input-item-content">
+                      
+                            	<template is="picker" data="{{ ...$wux.picker.userPropCom }}"/>
+                  </view>
+                </view>
+                
+
+
+                <view class="input-item">
+			<text class="input-item-label wx100">整备质量</text>
+			<view class="input-item-content">
+                      <input type="text" placeholder="请输入整备质量" value="{{wholeWeight}}"></input>
+                  </view>
+                </view> 
+
+
+                <view>
+                 <text>{{ $userPropCom }}</text>
+                </view>
+
+               </view>   
+	     </view> 
+          </view> 
+        </view>
+      </view>
+   </view>     
+</template>

@@ -1,0 +1,46 @@
+<!--logs.wxml-->
+<view class="container">
+  <view class="section">
+    <view class="flex bg p-fixed w-100">
+		  <view bindtap="tab"  class="w-33  t-center  border-b1 " id="{{item.index}}"   wx:for="{{orderMenu}}" wx:key="{{item.index}}" >
+			  <view class="{{tabArr.curHdIndex==item.index? 'pad10  c0 border-b2-c1' : 'pad10  c1'}}"><text>{{item.text}}</text></view>
+		  </view>
+    </view>
+  </view>
+  <view class="mar-t50">
+      <view class="bg0 border-tb1 pad-tb5 mar-t10" wx:for="{{orderList}}"   wx:key="{{item}}">
+        <view class="flex al-cen ju-con-be pad-rl10">
+          <view class="flex al-cen">
+             <image class="w32 h32" src="{{item.brandimg}}"></image>
+             <text class="pad-rl5">{{item.carlicenseno}}</text>
+          </view>
+          <view class="f3"><text >{{item.createtime}}</text></view>
+        </view>
+        <view class="flex al-cen ju-con-be pad-rl10 pad-tb5 border-b1">
+          <view>
+             <view><text>被保人:{{item.insuredname}}</text></view>
+          </view>
+          <view><text class="f3">共<text class="c4">1</text>家完成报价</text></view>
+        </view> 
+        <view class="flex al-cen ju-con-be pad-rl10 pad-tb5" data-item="{{item}}" bindtap="selectItem"  wx:for="{{item.quoteInfoList}}" wx:for-item="prvCom" wx:key="{{prvCom.inscomcode}}" wx:if="{{index< (item.showMore ?  item.quoteInfoList.length : 2)}}">
+          <view>
+             <view><text>{{prvCom.prvshotname}}</text></view>
+          </view>
+          <view>
+             <text class="f3 c4">
+               <text wx:if="{{prvCom.taskcode=='14'}}">￥{{prvCom.quoteamount}}</text>
+               <text wx:if="{{prvCom.taskcode!='14'}}">{{prvCom.taskWebName}}</text>
+             </text>
+          </view>
+        </view> 
+        <view class="t-center border-t1 pad5" bindtap="selectMore" wx:if="{{item.quoteInfoList.length>2}}" data-item="{{item}}" data-index="{{index}}">
+             <text class="f3">
+                <text wx:if="{{!item.showMore}}" >还有{{item.quoteInfoList.length - 2}}家报价，<text class="c4">点击展开</text></text>
+                <text wx:if="{{item.showMore}}">点击合并报价</text>
+             </text>
+        </view>
+      </view>
+      <view class="pad10  t-center" wx:if="{{showMore}}"><text class="f3 c3">正在加载中....</text></view>
+      <view class="mar-t80 pad10  t-center" wx:if="{{(orderList.length == 0)&&(isHasQuery)}}"><text class="f3 c3">暂无数据</text></view>
+  </view>     
+</view>

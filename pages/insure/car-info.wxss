@@ -1,0 +1,29 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.login-btn{
+   width: 80%;
+   color: white;
+   border-radius: 0;
+   font-size: 14px;
+   margin-top:15px;
+}
+
+checkbox-group {
+  display:inline-block;
+}
